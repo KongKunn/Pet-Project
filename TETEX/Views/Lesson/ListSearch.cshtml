@@ -1,0 +1,38 @@
+﻿@model List<TETEX.Models.Lessons>
+
+<h1>Lesson</h1>
+
+<!-- Table of courses -->
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <!-- Table header -->
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>CreatedDate</th>
+                <th>Category Course Id</th>
+                <th>Modified Date</th>
+                <th>Edit</th>
+                <th>Add Sections</th>
+                <th>List Sections</th>
+            </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody>
+            @foreach (var lesson in Model)
+            {
+                <tr>
+                    <td>@lesson.Id</td>
+                    <td>@lesson.Name</td>
+                    <td>@lesson.ModifiedDate</td>
+                    <td>@lesson.SectionId</td>
+                    <td>@lesson.Sections</td>
+                    <td>@lesson.ModifiedDate</td>
+                    <td><a asp-controller="Lesson" asp-action="Edit" asp-route-id="@lesson.Id">Edit</a></td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

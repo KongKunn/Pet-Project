@@ -1,0 +1,49 @@
+﻿@model List<TETEX.Models.Lessons>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Your Page Title</title>
+    <link rel="stylesheet" type="text/css" href="path/to/styles.css">
+</head>
+<body>
+    <h1>Lesson</h1>
+    <div class="table-responsive">
+        <form method="get" action="@Url.Action("ListCourse", "Course")">
+            <div class="form-group">
+                <label for="search">Search by Name:</label>
+                <input type="text" class="form-control form-control-sm" id="search" name="search" placeholder="Search by Lesson Name">
+            </div>
+            <button type="submit" class="btn btn-primary" asp-controller="Lesson" asp-action="ListSearch">Search</button>
+        </form>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Modified Date</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lesson in Model)
+                {
+                    <tr>
+                        <td>@lesson.Id</td>
+                        <td>@lesson.Name</td>
+                        <td>@lesson.Description</td>
+                        <td>@lesson.SectionId</td>
+
+                        <td>@lesson.ModifiedDate</td>
+
+                        <td><a class="c-button" style="margin-top: 20px" asp-controller="Lesson" asp-action="Edit" asp-route-id="@lesson.Id">Edit</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

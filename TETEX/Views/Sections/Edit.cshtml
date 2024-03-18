@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model TETEX.Models.Sections;
+
+<h1> Edit Sections</h1>
+@if (Model is null )
+{
+    <h2> No Lesson found with this ID </h2>
+}
+@if(Model is not null){
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CreatedDate" class="control-label"></label>
+                    <input asp-for="CreatedDate" class="form-control" />
+                    <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                </div>
+       
+                <div class="form-group">
+                    <label asp-for="CourseId" class="control-label"></label>
+                    <input asp-for="CourseId" class="form-control"  hidden/>
+                    <span asp-validation-for="CourseId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Course" class="control-label"></label>
+                    <input asp-for="Course" class="form-control" />
+                    <span asp-validation-for="Course" class="text-danger"></span>
+                </div>
+         
+            <div class="form-group">
+                    <input asp-controller="Sections" asp-action="Edit" type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+                <div class="form-group">
+                    <input asp-controller="Sections" asp-action="Delete" type="submit" value="Delete" class="btn btn-primary" />
+                </div>
+        </form>
+    </div>
+</div>
+}
+
